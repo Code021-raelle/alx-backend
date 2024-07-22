@@ -39,7 +39,8 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper_index(
+            self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
         """Get hypermedia pagination with index resilence to deletions
         """
         assert isinstance(index, int) and index >= 0
