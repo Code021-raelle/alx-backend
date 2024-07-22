@@ -4,7 +4,7 @@ Main file
 """
 
 
-Server = __import__('3-hypermedia_del_paginaation').Server
+Server = __import__('3-hypermedia_del_pagination').Server
 
 server = Server()
 
