@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-LRUCache module
+MRUCache module
 """
 
 from base_caching import BaseCaching
 from collections import OrderedDict
 
 
-class LRUCache(BaseCaching):
-    """ LRUCache is a caching system with LRu eviction policy """
+class MRUCache(BaseCaching):
+    """ MRUCache is a caching system with MRU eviction policy """
 
     def __init__(self):
-        """ Initialize LRUCache """
+        """ Initialize MRYCache """
         super().__init__()
         self.cache_data = OrderedDict()
-
+        
     def put(self, key, item):
         """ Add an item in the cache """
         if key is None or item is None:
@@ -23,7 +23,7 @@ class LRUCache(BaseCaching):
             self.cache_data.move_to_end(key)
         self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            discarded_key, _ = self.cache_data.popitem(last=False)
+            discarded_key, _ = self.cache_data.popitem(last=True)
             print("DISCARD: {}".format(discarded_key))
 
     def get(self, key):
